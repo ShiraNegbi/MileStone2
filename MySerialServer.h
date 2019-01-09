@@ -9,7 +9,6 @@
 using namespace server_side;
 
 class MySerialServer : public Server {
-
 };
 
 #endif //MILESTONE2_MYSERIALSERVER_H
