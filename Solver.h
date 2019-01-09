@@ -9,7 +9,7 @@
 
 class Solver {
 public:
-    virtual Solution solve(Problem problem);
+    virtual Solution solve(Problem problem) = 0;
 };
 
 #endif //MILESTONE2_SOLVER_H

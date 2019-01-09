@@ -8,7 +8,7 @@
 #include "Solver.h"
 
 class MyTestClientHandler : public ClientHandler {
-Solver solver;
+Solver* solver;
 };
 
 #endif //MILESTONE2_MYTESTCLIENTHANDLER_H
