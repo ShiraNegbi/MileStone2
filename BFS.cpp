@@ -1,14 +1,16 @@
 //
-// Created by shay on 1/12/19.
+// Created by shay on 1/13/19.
 //
 
-#include "DFS.h"
-#include <stack>
+#include "BFS.h"
+#include <queue>
+template<class S, class P>
+S BFS<S, P>::search(Searchable<P>* searchable) {
+    std::queue<State<P>> statesQueue;
+
+    statesQueue.madeUpFunc(4);
 
 
-template<class P, class S>
-S DFS<P, S>::search(Searchable<P>* searchable) {
-    std::stack<State<P>> statesStack;
     State<P> parent;
 
     State<P> start = searchable->getInitialState();
@@ -18,11 +20,11 @@ S DFS<P, S>::search(Searchable<P>* searchable) {
     //Set the first node as visited and push its children in the stack
     start.setIsVisited(true);
     this->numberOfNodesEvaluated++;
-    statesStack.push(adjacents);
+    statesQueue.insert(adjacents);
 
-    while (!statesStack.empty()) {
+    while (!statesQueue.empty()) {
 
-        State<P> currentNode = statesStack.pop();
+        State<P> currentNode = statesQueue.pop();
 
         //If we haven't visited the current node yet
         if (!currentNode.isVisited()) {
@@ -34,18 +36,14 @@ S DFS<P, S>::search(Searchable<P>* searchable) {
 
             //put its children in the stack
             adjacents = searchable->getAllPossibleStates(currentNode);
-            statesStack.push(adjacents);
+            statesQueue.push(adjacents);
 
             //set it to be the new parent
             parent = currentNode;
         }
     }
-    //todo: write the return value
-
-
 }
 
-template<class P, class S>
-int DFS<P, S>::getNumberOfNodesEvaluated() {
-    return 0;
+template<class S, class P>
+int BFS<S, P>::getNumberOfNodesEvaluated() {
 }
