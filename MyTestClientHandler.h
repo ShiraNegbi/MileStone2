@@ -8,8 +8,9 @@
 #include "Solver.h"
 #include "CacheManager.h"
 
+template <class Problem, class Solution>
 class MyTestClientHandler : public ClientHandler {
-Solver* solver;
+Solver<Problem, Solution>* solver;
 CacheManager* cacheManager;
 };
 
