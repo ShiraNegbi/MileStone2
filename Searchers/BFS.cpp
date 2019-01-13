@@ -10,7 +10,6 @@ S BFS<S, P>::search(Searchable<P>* searchable) {
 
     statesQueue.madeUpFunc(4);
 
-
     State<P> parent;
 
     State<P> start = searchable->getInitialState();
