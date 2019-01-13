@@ -12,6 +12,14 @@ namespace server_side {
         virtual void open(int port, ClientHandler* clientHandler) = 0;
         virtual void stop() = 0;
     };
+    namespace boot {
+        class Main {
+        public:
+            static int main(int argc, char* argv[]) {
+
+            }
+        };
+    }
 }
 
 #endif //MILESTONE2_SERVER_SIDE_H
