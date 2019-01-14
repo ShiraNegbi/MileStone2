@@ -12,15 +12,15 @@
 using namespace std;
 
 template <class Problem, class Solution>
-class FileCacheManager : public CacheManager {
+class FileCacheManager : public CacheManager <Problem, Solution> {
     string fileName;
     unordered_map<Problem, Solution> solved;
     void loadFromFile();
 public:
     FileCacheManager(string fileName);
-    virtual bool hasSolution(Problem problem);
-    virtual Solution getSolution(Problem problem);
-    virtual void saveSolution(Problem problem, Solution solution);
+    virtual bool hasSolution(Problem problem) override;
+    virtual Solution getSolution(Problem problem) override;
+    virtual void saveSolution(Problem problem, Solution solution) override;
 };
 
 #endif //MILESTONE2_FILECACHEMANAGER_H
