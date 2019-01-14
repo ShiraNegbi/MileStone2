@@ -6,9 +6,9 @@
 #define MILESTONE2_BFS_H
 
 
-#include "Searcher.h"
+#include "../Searcher.h"
 
-template <class S,class P>
+template <class P, class S>
 class BFS : public Searcher<P, S> {
     S search(Searchable<P>* searchable) override;
 
