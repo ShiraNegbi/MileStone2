@@ -1,18 +1,23 @@
 //
-// Created by shay on 1/13/19.
+// Created by shay on 1/15/19.
 //
 
 #ifndef MILESTONE2_BFS_H
 #define MILESTONE2_BFS_H
 
 
-#include "../Searcher.h"
+#include <queue>
+#include "GeneralFirstSearch.h"
+template <class P>
+class BFS : public GeneralFirstSearch<P>{
+private:
+    std::queue<State<P>> statesQueue;
+public:
+    void pushToDataset(State<P> state) override;
 
-template <class P, class S>
-class BFS : public Searcher<P, S> {
-    S search(Searchable<P>* searchable) override;
+    State<P> popFromDataset() override;
 
-    int getNumberOfNodesEvaluated() override;
+    bool isDatasetEmpty() override;
 };
 
 

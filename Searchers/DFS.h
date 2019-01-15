@@ -7,17 +7,18 @@
 
 
 #include "../Searcher.h"
-
-template<class P, class S>
-class DFS : public Searcher<P, S> {
+#include "GeneralFirstSearch.h"
+#include <stack>
+template<class P>
+class DFS : public GeneralFirstSearch<P> {
 private:
-    int numberOfNodesEvaluated;
-    //a flag that checks if we ran the algorithm. If we didn't, we can't answer to getNumberOfNodesEvaluated.
-    bool isRun;
-public:
-    S search(Searchable<P>* searchable) override;
-    int getNumberOfNodesEvaluated() override;
+    std::stack<State<P>> statesStack;
+protected:
+    void pushToDataset(State<P> state) override;
 
+    State<P> popFromDataset() override;
+
+    bool isDatasetEmpty() override;
 
 };
 

@@ -4,12 +4,12 @@
 
 #include "BestFirstSearch.h"
 
-template<class P, class S>
-S BestFirstSearch<P, S>::search(Searchable<P>* searchable) {
+template<class P>
+State<P> BestFirstSearch<P>::search(Searchable<P>* searchable) {
     return nullptr;
 }
 
-template<class P, class S>
-int BestFirstSearch<P, S>::getNumberOfNodesEvaluated() {
+template<class P>
+int BestFirstSearch<P>::getNumberOfNodesEvaluated() {
     return 0;
 }

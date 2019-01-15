@@ -7,9 +7,9 @@
 
 
 #include "../Searcher.h"
-template <class P, class S>
-class BestFirstSearch : public Searcher<P,S> {
-    S search(Searchable<P>* searchable) override;
+template <class P>
+class BestFirstSearch : public Searcher<P,State<P>> {
+    State<P> search(Searchable<P>* searchable) override;
 
     int getNumberOfNodesEvaluated() override;
 
