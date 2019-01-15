@@ -4,9 +4,8 @@
 
 #ifndef MILESTONE2_CACHMANAGER_H
 #define MILESTONE2_CACHMANAGER_H
-#include "Problem.h"
-#include "Solution.h"
 
+template <class Problem, class Solution>
 class CacheManager {
 public:
     virtual bool hasSolution(Problem problem) = 0;
