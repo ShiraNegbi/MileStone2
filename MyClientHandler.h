@@ -7,7 +7,7 @@
 #include "ClientHandler.h"
 #include "CacheManager.h"
 #include "Solver.h"
-#include "MatrixHandler.h"
+#include "MatrixProblem.h"
 #include <string>
 #include <sstream>
 #include <unistd.h>
@@ -19,9 +19,9 @@ using namespace std;
 template <class Problem, class Solution>
 class MyClientHandler : public ClientHandler {
     Solver<Problem, Solution>* solver;
-    MatrixHandler matrixHandler;
+    CacheManager<Problem, Solution>* cacheManager;
 public:
-    MyClientHandler(Solver<Problem, Solution>* solver);
+    MyClientHandler(Solver<Problem, Solution>* solver, CacheManager<Problem, Solution>* cacheManager);
     virtual void handleClient(int input, int output) override;
 };
 
