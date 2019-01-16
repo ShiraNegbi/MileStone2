@@ -37,7 +37,7 @@ public:
             }
             for (State<P>* successor : searchable->getAllPossibleStates(n)) {
 
-                double totalCost = n->getTotalCost() + successor->getCost();
+                double totalCost = this->calculateDistance(successor, n, searchable->getGoalState());
                 //if the successor is not in "close" or "open"
                 if (close.find(successor) != close.end() && !open.isContain(successor)) {
                     successor->setCameFrom(n);
@@ -58,7 +58,7 @@ public:
     }
 
 protected:
-    virtual double calculateDistance(State<P>* state, State<P>* cameFrom) {
+    virtual double calculateDistance(State<P>* state, State<P>* cameFrom, State<P>* goal) {
         return cameFrom->getTotalCost() + state->getCost();
     }
 };
