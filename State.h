@@ -6,32 +6,41 @@
 #define MILESTONE2_STATE_H
 
 
-    template <class T>
-    class State {
-    public:
-        State(T state, double cost, State<T>* cameFrom, bool visited);
+template<class T>
+class State {
 
-        T getValue() const;
+private:
+    T value;
+    double originalCost;
 
-        double getCost() const;
 
-        State<T>* getCameFrom() const;
+    State<T>* cameFrom;
+    bool visited;
+    double totalCost;
 
-        bool isVisited() const;
+public:
 
-        void setValue(T state);
+    State(T state, double cost, State<T>* cameFrom, bool visited);
 
-        void setCost(double cost);
+    T getValue() const;
 
-        void setCameFrom(State<T>* cameFrom);
+    double getCost() const;
 
-        void setIsVisited(bool visited);
+    State<T>* getCameFrom() const;
 
-    private:
-        T value;
-        double cost;
-        State<T>* cameFrom;
-        bool visited;
+    bool isVisited() const;
+
+    void setValue(T state);
+
+    void setCost(double cost);
+
+    void setCameFrom(State<T>* cameFrom);
+
+    void setIsVisited(bool visited);
+
+    double getTotalCost() const;
+
+    void setTotalCost(double totalCost);
 };
 
 

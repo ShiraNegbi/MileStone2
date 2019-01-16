@@ -5,7 +5,7 @@
 #include "State.h"
 
 template<class T>
-State<T>::State(T value, double cost, State<T>* cameFrom, bool visited) : value(value), cost(cost), cameFrom(cameFrom),
+State<T>::State(T value, double cost, State<T>* cameFrom, bool visited) : value(value), originalCost(cost), cameFrom(cameFrom),
                                                                           visited(visited) {}
 
 template<class T>
@@ -15,12 +15,16 @@ T State<T>::getValue() const {
 
 template<class T>
 double State<T>::getCost() const {
-    return cost;
+    return originalCost;
 }
 
 template<class T>
 State<T>* State<T>::getCameFrom() const {
     return cameFrom;
+}
+template<class T>
+double State<T>::getTotalCost() const {
+    return totalCost;
 }
 
 template<class T>
@@ -35,7 +39,7 @@ void State<T>::setValue(T state) {
 
 template<class T>
 void State<T>::setCost(double cost) {
-    State::cost = cost;
+    State::originalCost = cost;
 }
 
 template<class T>
@@ -47,3 +51,9 @@ template<class T>
 void State<T>::setIsVisited(bool visited) {
     State::visited = visited;
 }
+
+template<class T>
+void State<T>::setTotalCost(double totalCost) {
+    State::totalCost = totalCost;
+}
+

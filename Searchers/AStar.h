@@ -5,8 +5,11 @@
 #ifndef MILESTONE2_ASTAR_H
 #define MILESTONE2_ASTAR_H
 
-//How i wonder what you are
-class AStar {
+#include "../Searcher.h"
+
+
+template<class P>
+class AStar : Searcher<P, State<P>*> {
 
 };
 
