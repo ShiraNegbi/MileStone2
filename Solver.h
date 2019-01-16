@@ -4,8 +4,6 @@
 
 #ifndef MILESTONE2_SOLVER_H
 #define MILESTONE2_SOLVER_H
-#include "Problem.h"
-#include "Solution.h"
 
 template <class Problem, class Solution>
 class Solver {
