@@ -15,7 +15,7 @@ State<P> GeneralFirstSearch<P>::search(Searchable<P>* searchable) {
     bool found = false;
 
     start = searchable->getInitialState();
-    adjacents = searchable->getAllPossibleStates(start);
+    adjacents = searchable->getAconflictllPossibleStates(start);
     parent = start;
 
     //Set the first node as visited and push its children in the stack

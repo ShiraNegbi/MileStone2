@@ -17,7 +17,6 @@ public:
     Solution solve(Problem problem) override;
 };
 
-template<class Problem, class Solution>
-Solution SearcherSolver<Problem, Solution>::solve(Problem problem) override;
+
 
 #endif //MILESTONE2_SEARCHERSOLVER_H
