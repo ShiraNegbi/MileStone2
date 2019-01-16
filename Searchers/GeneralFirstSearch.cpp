@@ -4,8 +4,8 @@
 
 #include "GeneralFirstSearch.h"
 
-template<class P, class D>
-State<P> GeneralFirstSearch<P, D>::search(Searchable<P>* searchable) {
+template<class P>
+State<P> GeneralFirstSearch<P>::search(Searchable<P>* searchable) {
     State<P> currentNode;
     State<P> parent;
 
@@ -55,7 +55,7 @@ State<P> GeneralFirstSearch<P, D>::search(Searchable<P>* searchable) {
     //currentNode is the goal node.
 }
 
-template<class P, class D>
-int GeneralFirstSearch<P, D>::getNumberOfNodesEvaluated() {
+template<class P>
+int GeneralFirstSearch<P>::getNumberOfNodesEvaluated() {
     return this->numbeOfNodesEvaluated;
 }

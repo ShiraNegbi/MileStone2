@@ -11,7 +11,7 @@
     public:
         State(T state, double cost, State<T>* cameFrom, bool visited);
 
-        T getState() const;
+        T getValue() const;
 
         double getCost() const;
 
@@ -19,7 +19,7 @@
 
         bool isVisited() const;
 
-        void setState(T state);
+        void setValue(T state);
 
         void setCost(double cost);
 
@@ -28,7 +28,7 @@
         void setIsVisited(bool visited);
 
     private:
-        T state;
+        T value;
         double cost;
         State<T>* cameFrom;
         bool visited;

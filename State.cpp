@@ -5,12 +5,12 @@
 #include "State.h"
 
 template<class T>
-State<T>::State(T state, double cost, State<T>* cameFrom, bool visited) : state(state), cost(cost), cameFrom(cameFrom),
+State<T>::State(T value, double cost, State<T>* cameFrom, bool visited) : value(value), cost(cost), cameFrom(cameFrom),
                                                                           visited(visited) {}
 
 template<class T>
-T State<T>::getState() const {
-    return state;
+T State<T>::getValue() const {
+    return value;
 }
 
 template<class T>
@@ -29,8 +29,8 @@ bool State<T>::isVisited() const {
 }
 
 template<class T>
-void State<T>::setState(T state) {
-    State::state = state;
+void State<T>::setValue(T state) {
+    State::value = state;
 }
 
 template<class T>

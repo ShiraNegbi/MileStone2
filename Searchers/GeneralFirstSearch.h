@@ -15,9 +15,9 @@
  * that inherits it, and is expected to be a private member in it.
  */
 template<class P>
-class GeneralFirstSearch : Searcher<P, State<P>> {
+class GeneralFirstSearch : public Searcher<P, State<P>> {
+public:
      State<P> search(Searchable<P>* searchable) override;
-
     int getNumberOfNodesEvaluated() override;
 
 protected:

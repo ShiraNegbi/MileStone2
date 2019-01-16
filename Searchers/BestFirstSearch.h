@@ -7,11 +7,30 @@
 
 
 #include "../Searcher.h"
+#include <queue>
 template <class P>
-class BestFirstSearch : public Searcher<P,State<P>> {
-    State<P> search(Searchable<P>* searchable) override;
+class BestFirstSearch : public Searcher<P,State<P>*> {
+public:
+    State<P>* search(Searchable<P>* searchable) override{
+        std::queue<State<P>*> open;
+        std::queue<State<P>*> close;
 
-    int getNumberOfNodesEvaluated() override;
+        State<P>* initial = searchable->getInitialState();
+
+        open.push(initial);
+
+        while (!open.empty()) {
+            State<P>* n = open.front();
+            open.pop();
+
+            if()
+        }
+    }
+    int getNumberOfNodesEvaluated() override{
+        return 0;
+    }
+
+
 
 };
 

@@ -10,8 +10,8 @@
 
 template<class P, class S>
 class Searcher {
+public:
     virtual S search(Searchable<P>* searchable) = 0;
-
     //get how many nodes were evaluated by the algorithm
     virtual int getNumberOfNodesEvaluated() = 0;
 };
