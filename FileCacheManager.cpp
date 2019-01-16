@@ -12,11 +12,15 @@ void FileCacheManager<Problem, Solution>::loadFromFile() {
     if (!stream.good()) {
         return;
     }
-    string problem;
-    string solution;
-    while (getline(stream, problem)) {
-        getline(stream, solution);
-        this->solved[(Problem) problem] = (Solution) solution;
+    string problemString;
+    string solutionString;
+    Problem problem;
+    Solution solution;
+    while (getline(stream, problemString)) {
+        getline(stream, solutionString);
+        problem = problem.fromString(&problemString);
+        solution = solution.fromString(&solutionString);
+        this->solved[problem] = solution;
     }
     stream.close();
     return;

@@ -3,11 +3,12 @@
 //
 
 #include "MyClientHandler.h"
+#include "MatrixProblem.h"
 
 template<class Problem, class Solution>
-MyClientHandler<Problem, Solution>::MyClientHandler(Solver<Problem, Solution>* solver) {
+MyClientHandler<Problem, Solution>::MyClientHandler(Solver<Problem, Solution>* solver, CacheManager<Problem, Solution>* cacheManager) {
     this->solver = solver;
-    this->matrixHandler = MatrixHandler();
+    this->cacheManager = cacheManager;
 }
 
 template<class Problem, class Solution>
@@ -50,7 +51,15 @@ Up,  Down,  Left,  Right
             inputLines.push_back(line);
         }
     }
-    string solutionString = this->solver.solve(*(this->matrixHandler.generateMatrix(inputLines)));
+    MatrixProblem problem = *(problem.generateMatrix(inputLines));
+    Solution solution;
+    if (cacheManager->hasSolution(problem)) {
+        solution = cacheManager->getSolution(problem);
+    } else {
+        solution = solver->solveProblem(problem);
+        cacheManager->saveSolution(problem, solution);
+    }
+    string solutionString = this->solver.solve(problem).toString();
     len = write(input, solutionString.c_str(), (int)(solutionString.length()));
     if (len < 0) {
         perror("Cannot write to socket");
