@@ -6,11 +6,17 @@
 
 MatrixProblem::MatrixProblem(vector<vector<int>> &matrix, int startRow, int startColumn, int endRow,
                              int endColumn) {
+    this->stateMat = vector<vector<State<pair<int, int>>*>>();
     this->matrix = matrix;
     this->startRow = startRow;
     this->endRow = endRow;
     this->startColumn = startColumn;
     this->endColumn = endColumn;
+    for (int i = 0; i < this->matrix.size(); i++) {
+        for (int j = 0; j < this->matrix[i].size(); j++) {
+            this->stateMat[i][j] = new State<pair<int, int>>(pair<int, int>(i, j), this->matrix[i][j], nullptr, false);
+        }
+    }
 }
 
 vector<vector<int>>* MatrixProblem::getMatrix() {
@@ -107,6 +113,32 @@ MatrixProblem MatrixProblem::fromString(string &str) {
     }
     lines.push_back(cleanLine);
     return *(generateMatrix(lines));
+}
+
+State<pair<int, int>>* MatrixProblem::getInitialState() {
+    return this->stateMat[this->startRow][this->startColumn];
+}
+
+State<pair<int, int>>* MatrixProblem::getGoalState() {
+    return this->stateMat[this->endRow][this->endColumn];
+}
+
+vector<State<pair<int, int>>*> MatrixProblem::getAllPossibleStates(State<pair<int, int>>* s) {
+    vector<State<pair<int, int>>*> neighbors = vector<State<pair<int, int>>*>();
+    pair<int, int> val = s->getValue();
+    if (val.first > 0) {
+        neighbors.push_back(this->stateMat[val.first - 1][val.second]);
+    }
+    if (val.second > 0) {
+        neighbors.push_back(this->stateMat[val.first][val.second - 1]);
+    }
+    if (val.first < this->stateMat.size() - 1) {
+        neighbors.push_back(this->stateMat[val.first + 1][val.second]);
+    }
+    if (val.second < this->stateMat[val.first].size() - 1) {
+        neighbors.push_back(this->stateMat[val.first][val.second + 1]);
+    }
+    return neighbors;
 }
 
 

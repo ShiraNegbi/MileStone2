@@ -6,11 +6,13 @@
 #define MILESTONE2_MATRIXPROBLEM_H
 #include <string>
 #include <vector>
+#include "Searchable.h"
 #define STOP 2
 using namespace std;
 
-class MatrixProblem {
+class MatrixProblem : public Searchable<pair<int, int>> {
 private:
+    vector<vector<State<pair<int, int>>*>> stateMat;
     vector<vector<int>> matrix;
     int startRow;
     int startColumn;
@@ -29,6 +31,12 @@ public:
     string toString();
     static MatrixProblem* generateMatrix(vector<string> &line);
     static string getStringCode(string &str);
+
+    State<pair<int, int>>* getInitialState() override;
+
+    State<pair<int, int>>* getGoalState() override;
+
+    vector<State<pair<int, int>>*> getAllPossibleStates(State<pair<int, int>>* s) override;
 };
 
 #endif //MILESTONE2_MATRIXPROBLEM_H
