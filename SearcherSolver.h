@@ -4,8 +4,10 @@
 
 #ifndef MILESTONE2_SEARCHERSOLVER_H
 #define MILESTONE2_SEARCHERSOLVER_H
+#include <string>
 #include "Solver.h"
 #include "Searcher.h"
+using namespace std;
 
 template <class Problem, class Solution>
 class SearcherSolver : public Solver<Problem, Solution> {
