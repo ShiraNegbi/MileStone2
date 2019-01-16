@@ -6,10 +6,10 @@
 #define MILESTONE2_BESTFIRSTSEARCH_H
 
 
-#include "../Searcher.h"
+#include "Searcher.h"
 #include <unordered_set>
 #include <queue>
-#include "../PriorityQueue.h"
+#include "PriorityQueue.h"
 
 template<class P>
 class BestFirstSearch : public Searcher<P, State<P>*> {

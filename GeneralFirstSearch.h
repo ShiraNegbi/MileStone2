@@ -5,7 +5,7 @@
 #ifndef MILESTONE2_GENERALFIRSTSEARCH_H
 #define MILESTONE2_GENERALFIRSTSEARCH_H
 
-#include "../Searcher.h"
+#include "Searcher.h"
 
 /**
  * This virtual class is a general version of algorithms like DFS and BFS,

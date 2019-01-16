@@ -14,7 +14,8 @@ MatrixProblem::MatrixProblem(vector<vector<int>> &matrix, int startRow, int star
     this->endColumn = endColumn;
     for (int i = 0; i < this->matrix.size(); i++) {
         for (int j = 0; j < this->matrix[i].size(); j++) {
-            this->stateMat[i][j] = new State<pair<int, int>>(pair<int, int>(i, j), this->matrix[i][j], nullptr, false);
+            this->stateMat[i][j] = (new State<pair<int, int>>(pair<int, int>(i, j), this->matrix[i][j], nullptr, false));
+           // new State<pair<int,int>>(pair<int,int>())
         }
     }
 }

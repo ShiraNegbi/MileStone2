@@ -6,7 +6,7 @@
 #define MILESTONE2_DFS_H
 
 
-#include "../Searcher.h"
+#include "Searcher.h"
 #include "GeneralFirstSearch.h"
 #include <stack>
 template<class P>

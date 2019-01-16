@@ -1,24 +1,10 @@
 #include <iostream>
 #include "Searchable.h"
 #include "Searcher.h"
-#include "Searchers/BestFirstSearch.h"
-#include "Searchers/DFS.h"
-#include "Searchers/DummySearchable.h"
+#include "BestFirstSearch.h"
+#include "DFS.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-
-    //auto* searcher = new BestFirstSearch<int>();
-    //searcher->search(new DummySearchable<int>());
-    Searchable<int*>* searchable = new DummySearchable<int*>();
-    auto* searcher = new BestFirstSearch<int*>();
-    searcher->search(searchable);
-
-
-
-
-
-
-
+    //todo: don't forget to upload the implemented version of main from the back-up files
     return 0;
 }

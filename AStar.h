@@ -5,7 +5,7 @@
 #ifndef MILESTONE2_ASTAR_H
 #define MILESTONE2_ASTAR_H
 
-#include "../Searcher.h"
+#include "Searcher.h"
 #include "BestFirstSearch.h"
 
 
