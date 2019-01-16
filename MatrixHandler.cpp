@@ -28,5 +28,6 @@ vector<int>* MatrixHandler::separateByComma(string &str) {
             }
         }
     }
+    result->push_back(stoi(num));
     return result;
 }

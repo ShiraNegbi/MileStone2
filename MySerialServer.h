@@ -18,8 +18,8 @@ class MySerialServer : public Server {
     int currentSocket;
     int s;
 public:
-    void open(int port, ClientHandler clientHandler) override;
-    void stop() = override;
+    void open(int port, ClientHandler* clientHandler) override;
+    void stop() override;
 };
 
 #endif //MILESTONE2_MYSERIALSERVER_H
