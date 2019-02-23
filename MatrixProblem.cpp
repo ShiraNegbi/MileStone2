@@ -14,8 +14,9 @@ MatrixProblem::MatrixProblem(vector<vector<int>> &matrix, int startRow, int star
     this->endColumn = endColumn;
     for (int i = 0; i < this->matrix.size(); i++) {
         for (int j = 0; j < this->matrix[i].size(); j++) {
-            this->stateMat[i][j] = (new State<pair<int, int>>(pair<int, int>(i, j), this->matrix[i][j], nullptr, false));
-           // new State<pair<int,int>>(pair<int,int>())
+           // this->stateMat[i][j] = (new State<pair<int, int>>(pair<int, int>(i, j), this->matrix[i][j], nullptr,false));
+            pair<int, int> pair1 = pair<int, int>(i, j);
+            new State<pair<int, int>>(pair<int, int>(i, j), this->matrix[i][j], nullptr, false);
         }
     }
 }
@@ -50,7 +51,8 @@ string MatrixProblem::toString() {
         describe += this->matrix[i][this->matrix[i].size() - 1];
         describe += " ";
     }
-    describe += to_string(this->startRow) + "," + to_string(this->startColumn) + " " + to_string(this->endRow) + "," + to_string(this->endColumn);
+    describe += to_string(this->startRow) + "," + to_string(this->startColumn) + " " + to_string(this->endRow) + "," +
+                to_string(this->endColumn);
     return describe;
 }
 
@@ -61,8 +63,7 @@ vector<int>* MatrixProblem::separateByComma(string &str) {
         if (str[i] == ',') {
             result->push_back(stoi(num));
             num = string();
-        }
-        else {
+        } else {
             if (str[i] >= '0' && str[i] <= '9') {
                 num += str[i];
             }
@@ -106,8 +107,7 @@ MatrixProblem MatrixProblem::fromString(string &str) {
     for (int i = 0; i < str.length(); i++) {
         if (str[i] != ' ') {
             cleanLine += str[i];
-        }
-        else {
+        } else {
             lines.push_back(cleanLine);
             cleanLine = string();
         }

@@ -14,12 +14,11 @@
 #define BUFFER_SIZE 1024
 using namespace std;
 
-template <class Problem, class Solution>
 class MyTestClientHandler : public ClientHandler {
 Solver<Problem, Solution>* solver;
-CacheManager<Problem, Solution>* cacheManager;
+CacheManager* cacheManager;
 public:
-    MyTestClientHandler(Solver<Problem, Solution>* solver, CacheManager<Problem, Solution>* cacheManager);
+    MyTestClientHandler(Solver<Problem, Solution>* solver, CacheManager* cacheManager);
     virtual void handleClient(int input, int output) override;
 };
 

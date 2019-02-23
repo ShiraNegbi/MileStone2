@@ -5,6 +5,7 @@
 #ifndef MILESTONE2_STATE_H
 #define MILESTONE2_STATE_H
 
+#include <string>
 
 template<class T>
 class State {
@@ -20,27 +21,52 @@ private:
 
 public:
 
-    State(T state, double cost, State<T>* cameFrom, bool visited);
+    State(T state, double cost, State<T>* cameFrom, bool visited) : value(value), originalCost(cost),
+                                                                    cameFrom(cameFrom),
+                                                                    visited(visited) {}
 
-    T getValue() const;
+    T getValue() const {
+        return value;
+    }
 
-    double getCost() const;
+    double getCost() const {
+        return originalCost;
+    }
 
-    State<T>* getCameFrom() const;
+    State<T>* getCameFrom() const {
+        return cameFrom;
+    }
 
-    bool isVisited() const;
+    double getTotalCost() const {
+        return totalCost;
+    }
 
-    void setValue(T state);
+    bool isVisited() const {
+        return visited;
+    }
 
-    void setCost(double cost);
+    void setValue(T state) {
+        value = state;
+    }
 
-    void setCameFrom(State<T>* cameFrom);
+    void setCost(double cost) {
+        originalCost = cost;
+    }
 
-    void setIsVisited(bool visited);
+    void setCameFrom(State<T>* cameFrom) {
+        State::cameFrom = cameFrom;
+    }
 
-    double getTotalCost() const;
+    void setIsVisited(bool visited) {
+        State::visited = visited;
+    }
 
-    void setTotalCost(double totalCost);
+    void setTotalCost(double totalCost) {
+        State::totalCost = totalCost;
+    }
+//    std::string toString() {
+//        return "yay";
+//    }
 };
 
 

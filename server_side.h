@@ -15,7 +15,8 @@ namespace server_side {
     namespace boot {
         class Main {
         public:
-            static int main(int argc, char* argv[]) {
+           int main(int argc, char* argv[]) {
+                Server* server;
 
             }
         };

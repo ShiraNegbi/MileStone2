@@ -19,14 +19,12 @@ public:
     State<P>* search(Searchable<P>* searchable) override {
         /*An unordered set that contains the same elements as "open",
         so we can check which element is in "open" in O(1) time. */
-        PriorityQueue<State<P>*> open; //the priority queue named "open"
+        PriorityQueue<State<P>*> open = PriorityQueue<State<P>*>(); //the priority queue named "open"
         std::unordered_set<State<P>*> close;
 
 
         State<P>* initial = searchable->getInitialState();
         State<P>* goalState = searchable->getGoalState();
-
-        open.push(initial);
 
         while (!open.isEmpty()) {
             State<P>* n = open.pop();

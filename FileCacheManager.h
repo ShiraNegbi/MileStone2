@@ -4,23 +4,30 @@
 
 #ifndef MILESTONE2_FILECACHEMANAGER_H
 #define MILESTONE2_FILECACHEMANAGER_H
+
 #include <string>
 #include <unordered_map>
 #include <fstream>
 #include <sstream>
 #include "CacheManager.h"
+
 using namespace std;
 
-template <class Problem, class Solution>
-class FileCacheManager : public CacheManager <Problem, Solution> {
+class FileCacheManager : public CacheManager {
+private:
     string fileName;
-    unordered_map<Problem, Solution> solved;
+    unordered_map<string, string> solved;
+
     void loadFromFile();
+
 public:
-    FileCacheManager(string fileName);
-    virtual bool hasSolution(Problem problem) override;
-    virtual Solution getSolution(Problem problem) override;
-    virtual void saveSolution(Problem problem, Solution solution) override;
+    explicit FileCacheManager(string fileName);
+
+    virtual bool hasSolution(string problem) override;
+
+    virtual string getSolution(string problem) override;
+
+    virtual void saveSolution(string problem, string solution) override;
 };
 
 #endif //MILESTONE2_FILECACHEMANAGER_H

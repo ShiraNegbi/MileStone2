@@ -4,19 +4,25 @@
 
 #ifndef MILESTONE2_SEARCHERSOLVER_H
 #define MILESTONE2_SEARCHERSOLVER_H
+
 #include <string>
 #include "Solver.h"
 #include "Searcher.h"
+
 using namespace std;
 
-template <class Problem, class Solution>
-class SearcherSolver : public Solver<Problem, Solution> {
-    Searcher<Problem, Solution>* searcher;
+template<class P, class S>
+class SearcherSolver : public Solver<Searchable<P>*, S> {
+    Searcher<P, S>* searcher;
 public:
-    SearcherSolver(Searcher<Problem, Solution>* searcher);
-    Solution solve(Problem problem) override;
-};
+    explicit SearcherSolver(Searcher<P, S>* searcher) {
+        this->searcher = searcher;
+    }
 
+    S solve(Searchable<P>* problem) override {
+        return this->searcher->search(problem);
+    }
+};
 
 
 #endif //MILESTONE2_SEARCHERSOLVER_H
